@@ -17,7 +17,7 @@ include_once "queries/dbConnection.php";
     <meta name="keywords" content="Gym, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Gym | Template</title>
+    <title>DDS | History</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
@@ -99,16 +99,16 @@ include_once "queries/dbConnection.php";
                         <ul>
                             <li><a href="index.php">Home</a></li>
                             <li><a href="#">BMI Calculator</a></li>
-                            <li><a href="./class-details.html">Calendar</a></li>
+                            <!-- <li><a href="./class-details.html">Calendar</a></li> -->
                             <li class="active"><a href="#">Programs</a>
                                 <ul class="dropdown">
-                                    <li><a href="#">Diatary</a>
+                                    <li><a href="diatary.php">Dietary</a>
                                     </li>
-                                    <li><a href="./class-timetable.html">Exercise</a></li>
+                                    <li><a href="exercises.php">Exercise</a></li>
                                 </ul>
                             </li>
                             <li><a href="./contact.html">Feedback</a></li>
-                            <li><a href="./about-us.html">About Us</a></li>
+                            <li><a href="about_us.php">About Us</a></li>
                             <li><a href="./team.html">Settings</a></li>
                         </ul>
                     </nav>
@@ -169,11 +169,11 @@ include_once "queries/dbConnection.php";
                             <div class="container">
                                 <label class="text-white">My Progress</label>
                                 <div class="progress" style="height: 10px;">
-                                    <div class="progress-bar bg-dark" role="progressbar" style="width: <?= $totalAvg; ?>%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?= $totalAvg; ?>%</div>
+                                    <div class="progress-bar" role="progressbar" style="width: <?= $totalAvg; ?>%; background-color:#cc5500;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?= $totalAvg; ?>%</div>
                                 </div>
                             </div>
                             <div class="col-12 mt-3 pb-3">
-                                <a href="myProgram.php?programId=<?= $row['2'] ?>&username=<?= $_SESSION['username'] ?>" class="btn btn-primary">Go to</a>
+                                <a href="myProgram.php?programId=<?= $row['2'] ?>&username=<?= $_SESSION['username'] ?>" class="btn" style="background-color:#cc5500">Continue</a>
                             </div>
                         </div>
                     </div>

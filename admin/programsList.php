@@ -227,6 +227,7 @@ $numberOfPrograms = $countNumberOfProgramsquery->fetch_assoc();
                                                                                         <label for="">BMI RANGE</label>
                                                                                         <select class="form-select" name="bmiRange" id="basicSelect">
                                                                                             <!-- <option>BMI Range</option> -->
+
                                                                                             <option value="Below 18.5">Below 18.5</option>
                                                                                             <option value="18.5 to 24.9">18.5 to 24.9</option>
                                                                                             <option value="25 to 29.9">25 to 29.9</option>
@@ -275,6 +276,7 @@ $numberOfPrograms = $countNumberOfProgramsquery->fetch_assoc();
                                                                                         <label for="">BMI RANGE</label>
                                                                                         <select class="form-select" name="bmiRange" id="basicSelect">
                                                                                             <!-- <option>BMI Range</option> -->
+                                                                                            <option value="Below 18.5">None</option>
                                                                                             <option value="Below 18.5">Below 18.5</option>
                                                                                             <option value="18.5 to 24.9">18.5 to 24.9</option>
                                                                                             <option value="25 to 29.9">25 to 29.9</option>

@@ -1,24 +1,10 @@
-<?php
-
-
-session_start();
-include_once "queries/dbConnection.php";
-
-
-
-
-?>
-
-<!DOCTYPE html>
-<html lang="zxx">
-
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Gym Template">
     <meta name="keywords" content="Gym, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Gym | Template</title>
+    <title>/DDS | Home</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
@@ -37,6 +23,8 @@ include_once "queries/dbConnection.php";
     <link rel="stylesheet" href="template-files/css/style.css" type="text/css">
 
     <link rel="stylesheet" href="dist/sweetAlert/sweetalert2.min.css">
+
+
 </head>
 
 <body>
@@ -90,7 +78,7 @@ include_once "queries/dbConnection.php";
             <div class="row align-items-center">
                 <div class="col-lg-3">
                     <div class="logo">
-                        <a href="./index.html">
+                        <a href="index.php">
                             <img src="dist/images/DDS.png" height="70px" alt="">
                         </a>
                     </div>
@@ -99,21 +87,22 @@ include_once "queries/dbConnection.php";
                     <nav class="nav-menu">
                         <ul>
                             <li><a href="index.php">Home</a></li>
-                            <li><a href="#">BMI Calculator</a></li>
-                            <li><a href="./class-details.html">Calendar</a></li>
-                            <li class="active"><a href="#">Programs</a>
+                            <li><a href="bmiCalculator.php">BMI Calculator</a></li>
+                            <!-- <li><a href="./class-details.html">Calendar</a></li> -->
+                            <li><a href="#">Programs</a>
                                 <ul class="dropdown">
-                                    <li><a href="#">Diatary</a>
-                                        <ul class="dropdown">
+                                    <li><a href="diatary.php">Dietary</a>
+                                        <!-- <ul class="dropdown">
                                             <li><a href="./about-us.html">Loss Weight</a></li>
                                             <li><a href="./class-timetable.html">Gain Weight</a></li>
-                                        </ul>
+                                        </ul> -->
                                     </li>
-                                    <li><a href="./class-timetable.html">Exercise</a></li>
+                                    <!-- Modal -->
+                                    <li><a href="exercises.php">Exercise</a></li>
                                 </ul>
                             </li>
                             <li><a href="./contact.html">Feedback</a></li>
-                            <li><a href="./about-us.html">About Us</a></li>
+                            <li class="active"><a href="about_us.php">About Us</a></li>
                             <li><a href="./team.html">Settings</a></li>
                         </ul>
                     </nav>
@@ -121,6 +110,7 @@ include_once "queries/dbConnection.php";
                 <div class="col-lg-3">
                     <div class="top-option">
                         <div>
+
                             <?php if (!isset($_SESSION['username'])) : ?>
                                 <a href="userSignin.php">Sign in</a>
                             <?php endif; ?>
@@ -136,63 +126,98 @@ include_once "queries/dbConnection.php";
             </div>
         </div>
     </header>
-    <!-- Header End -->
 
-
-
-    <!-- Classes Section Begin -->
-    <section class="classes-section spad" style="height: 100vh;">
+    <section class="classes-section spad">
         <div class="container">
-            <form action="" method="POST">
-                <div class="row mt-5 justify-content-center">
-                    <div class="col-3">
-                        <fieldset class="form-group">
-                            <select class="form-select" name="bmiRange" id="basicSelect">
-                                <option>BMI Range</option>
-                                <option value="Below 18.5">Below 18.5</option>
-                                <option value="18.5 to 24.9">18.5 to 24.9</option>
-                                <option value="25 to 29.9">25 to 29.9</option>
-                                <option value="30 or Greater">30 or Greater</option>
-                            </select>
-                        </fieldset>
-                    </div>
-                    <div class="col-3">
-                        <button class="btn btn-primary" name="submitBtn">Submit</button>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <span>Our Programs</span>
+                        <h2>WHAT WE CAN OFFER</h2>
                     </div>
                 </div>
-            </form>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="class-item">
+                        <div class="ci-pic">
+                            <img src="img/classes/class-1.jpg" alt="">
+                        </div>
+                        <div class="ci-text">
+                            <span>Exercise</span>
+                            <h5>Agility</h5>
+                            <a href="#"><i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="class-item">
+                        <div class="ci-pic">
+                            <img src="img/classes/class-2.jpg" alt="">
+                        </div>
+                        <div class="ci-text">
+                            <span>Exercise</span>
+                            <h5>Stamina</h5>
+                            <a href="#"><i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="class-item">
+                        <div class="ci-pic">
+                            <img src="img/classes/class-3.jpg" alt="">
+                        </div>
+                        <div class="ci-text">
+                            <span>Exercise</span>
+                            <h5>Strength/Power</h5>
+                            <a href="#"><i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="class-item">
+                        <div class="ci-pic">
+                            <img src="img/classes/class-4.jpg" alt="">
+                        </div>
+                        <div class="ci-text">
+                            <span>Dietary</span>
+                            <h4>Lose Weight</h4>
+                            <a href="#"><i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="class-item">
+                        <div class="ci-pic">
+                            <img src="img/classes/class-5.jpg" alt="">
+                        </div>
+                        <div class="ci-text">
+                            <span>Dietary</span>
+                            <h4>Gain Weight</h4>
+                            <a href="#"><i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-    <!-- ChoseUs Section End -->
 
-
-    <!-- Gallery Section Begin -->
-    <!-- <div class="gallery-section">
-        <div class="gallery">
-            <div class="grid-sizer"></div>
-            <div class="gs-item grid-wide set-bg" data-setbg="img/gallery/gallery-1.jpg">
-                <a href="img/gallery/gallery-1.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
-            </div>
-            <div class="gs-item set-bg" data-setbg="img/gallery/gallery-2.jpg">
-                <a href="img/gallery/gallery-2.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
-            </div>
-            <div class="gs-item set-bg" data-setbg="img/gallery/gallery-3.jpg">
-                <a href="img/gallery/gallery-3.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
-            </div>
-            <div class="gs-item set-bg" data-setbg="img/gallery/gallery-4.jpg">
-                <a href="img/gallery/gallery-4.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
-            </div>
-            <div class="gs-item set-bg" data-setbg="img/gallery/gallery-5.jpg">
-                <a href="img/gallery/gallery-5.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
-            </div>
-            <div class="gs-item grid-wide set-bg" data-setbg="img/gallery/gallery-6.jpg">
-                <a href="img/gallery/gallery-6.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
+    <div class="gettouch-section">
+        <div class="container">
+            <h5 class="text-white mb-4">At diet diary system, we came up to help users for a dietary monitoring and provide exercises base in the users gender and BMI. We want the users achieve the body goal that they wanted to achive using our powerful designed platform.</h5>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="gt-text email">
+                        <i class="fa fa-envelope"></i>
+                        <p>dietdiarysystem@gmail.com</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div> -->
-    <!-- Gallery Section End -->
-
-
+    </div>
+    <!-- Get In Touch Section End -->
 
     <!-- Footer Section Begin -->
     <section class="footer-section">
@@ -236,9 +261,7 @@ include_once "queries/dbConnection.php";
     <script src="template-files/js/main.js"></script>
     <script src="dist/sweetAlert/sweetalert2.min.js"></script>
 
+
 </body>
-
-
-
 
 </html>

@@ -19,7 +19,7 @@ session_start();
         <meta name="keywords" content="Gym, unica, creative, html">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Gym | Template</title>
+        <title>DDS | Home</title>
 
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
@@ -101,23 +101,23 @@ session_start();
                     <div class="col-lg-6">
                         <nav class="nav-menu">
                             <ul>
-                                <li class="active"><a href="./index.html">Home</a></li>
+                                <li class="active"><a href="index.php">Home</a></li>
                                 <li><a href="bmiCalculator.php">BMI Calculator</a></li>
-                                <li><a href="./class-details.html">Calendar</a></li>
+                                <!-- <li><a href="./class-details.html">Calendar</a></li> -->
                                 <li><a href="#">Programs</a>
                                     <ul class="dropdown">
-                                        <li><a href="diatary.php">Diatary</a>
+                                        <li><a href="diatary.php">Dietary</a>
                                             <!-- <ul class="dropdown">
                                             <li><a href="./about-us.html">Loss Weight</a></li>
                                             <li><a href="./class-timetable.html">Gain Weight</a></li>
                                         </ul> -->
                                         </li>
                                         <!-- Modal -->
-                                        <li><a href="./class-timetable.html">Exercise</a></li>
+                                        <li><a href="exercises.php">Exercise</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="./contact.html">Feedback</a></li>
-                                <li><a href="./about-us.html">About Us</a></li>
+                                <li><a href="about_us.php">About Us</a></li>
                                 <li><a href="./team.html">Settings</a></li>
                             </ul>
                         </nav>
@@ -152,7 +152,7 @@ session_start();
                                 <div class="hi-text">
                                     <span>Shape your body</span>
                                     <h1>Diet <strong>Diary</strong> System</h1>
-                                    <a href="#" class="primary-btn">About us</a>
+                                    <a href="about_us.php" class="primary-btn">About us</a>
                                 </div>
                             </div>
                         </div>
@@ -181,7 +181,7 @@ session_start();
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-title">
-                            <span>Our Classes</span>
+                            <span>Our Programs</span>
                             <h2>WHAT WE CAN OFFER</h2>
                         </div>
                     </div>
@@ -193,8 +193,8 @@ session_start();
                                 <img src="img/classes/class-1.jpg" alt="">
                             </div>
                             <div class="ci-text">
-                                <span>STRENGTH</span>
-                                <h5>Weightlifting</h5>
+                                <span>Exercise</span>
+                                <h5>Agility</h5>
                                 <a href="#"><i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
@@ -205,8 +205,8 @@ session_start();
                                 <img src="img/classes/class-2.jpg" alt="">
                             </div>
                             <div class="ci-text">
-                                <span>Cardio</span>
-                                <h5>Indoor cycling</h5>
+                                <span>Exercise</span>
+                                <h5>Stamina</h5>
                                 <a href="#"><i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
@@ -217,8 +217,8 @@ session_start();
                                 <img src="img/classes/class-3.jpg" alt="">
                             </div>
                             <div class="ci-text">
-                                <span>STRENGTH</span>
-                                <h5>Kettlebell power</h5>
+                                <span>Exercise</span>
+                                <h5>Strength/Power</h5>
                                 <a href="#"><i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
@@ -229,8 +229,8 @@ session_start();
                                 <img src="img/classes/class-4.jpg" alt="">
                             </div>
                             <div class="ci-text">
-                                <span>Cardio</span>
-                                <h4>Indoor cycling</h4>
+                                <span>Dietary</span>
+                                <h4>Lose Weight</h4>
                                 <a href="#"><i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
@@ -241,8 +241,8 @@ session_start();
                                 <img src="img/classes/class-5.jpg" alt="">
                             </div>
                             <div class="ci-text">
-                                <span>Training</span>
-                                <h4>Boxing</h4>
+                                <span>Dietary</span>
+                                <h4>Gain Weight</h4>
                                 <a href="#"><i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>

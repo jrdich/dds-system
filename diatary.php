@@ -30,7 +30,7 @@ if (isset($_POST['selectBtn'])) {
     <meta name="keywords" content="Gym, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Gym | Template</title>
+    <title>DDS | Dietary</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
@@ -111,17 +111,17 @@ if (isset($_POST['selectBtn'])) {
                     <nav class="nav-menu">
                         <ul>
                             <li><a href="index.php">Home</a></li>
-                            <li><a href="#">BMI Calculator</a></li>
-                            <li><a href="./class-details.html">Calendar</a></li>
+                            <li><a href="bmiCalculator.php">BMI Calculator</a></li>
+                            <!-- <li><a href="./class-details.html">Calendar</a></li> -->
                             <li class="active"><a href="#">Programs</a>
                                 <ul class="dropdown">
-                                    <li><a href="#">Diatary</a>
+                                    <li><a href="diatary.php">Dietary</a>
                                     </li>
-                                    <li><a href="./class-timetable.html">Exercise</a></li>
+                                    <li><a href="exercises.php">Exercise</a></li>
                                 </ul>
                             </li>
                             <li><a href="./contact.html">Feedback</a></li>
-                            <li><a href="./about-us.html">About Us</a></li>
+                            <li><a href="about_us.php">About Us</a></li>
                             <li><a href="./team.html">Settings</a></li>
                         </ul>
                     </nav>
@@ -154,7 +154,7 @@ if (isset($_POST['selectBtn'])) {
                 <div class="col-3">
                     <label class="text-white">Select Your Program</label>
                     <select class="form-select" name="program">
-                        <option value="Loss Weight">Loss Weight</option>
+                        <option value="Loss Weight">Lose Weight</option>
                         <option value="Gain Weight">Gain Weight</option>
                     </select>
                 </div>
@@ -171,8 +171,8 @@ if (isset($_POST['selectBtn'])) {
                     <button type="submit" class="btn btn-primary" name="selectBtn" style="margin-top: 2rem;">Select</button>
                 </div>
                 <div class="col-2">
-                    <div class="text-end" style="margin-top: 6em; margin-right: em">
-                        <a href="history.php" class="" style="color: #cc5500;font-size:40px"><b>History</b></a>
+                    <div class="text-end mt-4" style="margin-right: 20em">
+                        <a href="history.php" class="" style="color: #cc5500;font-size:40px;"><b>History</b></a>
                     </div>
                 </div>
 
@@ -183,7 +183,7 @@ if (isset($_POST['selectBtn'])) {
 
 
 
-        <div class="container" style="margin-top:-3em">
+        <div class="container" style="margin-top:3em">
 
             <div class="row">
                 <?php foreach ($queryAssoc as $key => $row) : ?>

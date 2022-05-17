@@ -4,6 +4,20 @@
 session_start();
 include_once "queries/dbConnection.php";
 
+// if (isset($_POST['selectBtn'])) {
+
+//     $find = "SELECT * FROM programs WHERE category = 'Dietary' AND (bmi_range = '$_POST[bmiRange]' AND p_select = '$_POST[program]')";
+//     $findQuery = $conn->query($find);
+//     $queryAssoc = $findQuery->fetch_all(MYSQLI_ASSOC);
+// } else {
+//     $find = "SELECT * FROM programs WHERE category = 'Dietary'";
+//     $findQuery = $conn->query($find);
+//     $queryAssoc = $findQuery->fetch_all(MYSQLI_ASSOC);
+// }
+
+
+
+
 
 ?>
 
@@ -16,7 +30,7 @@ include_once "queries/dbConnection.php";
     <meta name="keywords" content="Gym, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>DDS | BMI Calculator</title>
+    <title>DDS | Exercise</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
@@ -33,6 +47,7 @@ include_once "queries/dbConnection.php";
     <link rel="stylesheet" href="template-files/css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="template-files/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="template-files/css/style.css" type="text/css">
+
     <link rel="stylesheet" href="dist/sweetAlert/sweetalert2.min.css">
 </head>
 
@@ -96,13 +111,13 @@ include_once "queries/dbConnection.php";
                     <nav class="nav-menu">
                         <ul>
                             <li><a href="index.php">Home</a></li>
-                            <li class="active"><a href="#">BMI Calculator</a></li>
+                            <li><a href="bmiCalculator.php">BMI Calculator</a></li>
                             <!-- <li><a href="./class-details.html">Calendar</a></li> -->
-                            <li><a href="#">Programs</a>
+                            <li class="active"><a href="#">Programs</a>
                                 <ul class="dropdown">
                                     <li><a href="diatary.php">Dietary</a>
                                     </li>
-                                    <li><a href="exercises.php">Exercise</a></li>
+                                    <li><a href="#">Exercise</a></li>
                                 </ul>
                             </li>
                             <li><a href="./contact.html">Feedback</a></li>
@@ -131,48 +146,86 @@ include_once "queries/dbConnection.php";
     </header>
     <!-- Header End -->
 
-
-
     <!-- Classes Section Begin -->
-    <section class="classes-section spad" style="height: 100vh;">
-        <div class="container">
-            <form action="" method="POST">
-                <div class="row mt-5">
-                    <input type="hidden" name="userUsername" value="<?= $_SESSION['username']; ?>">
-                    <div class="col-6 text-end">
-                        <label class="me-2 text-white">Height</label>
-                        <input type="number" name="height" class="heightInput" placeholder="meters" step="0.01" required>
-                    </div>
-                    <div class="col-6">
-                        <input type="number" class="weightInput" name="weight" placeholder="kilograms" required>
-                        <label class="ms-2 text-white">Weight</label>
-                    </div>
-                    <div class="col-6 text-end mt-3">
-                        <button type="submit" class="btn btn-primary" name="computeBtn">Compute</button>
-                    </div>
-                    <div class="col-6 mt-3">
-                        <button class="btn btn-danger clearBtn">Clear</button>
+    <section class="classes-section spad">
+
+        <form method="post">
+            <div class="row justify-content-center align-items-center mt-4">
+                <div class="col-3">
+                    <label class="text-white">Select Your Program</label>
+                    <select class="form-select" name="program">
+                        <option value="Lose Weight">Stamina</option>
+                        <option value="Gain Weight">Agility</option>
+                        <option value="Gain Weight">Power/Strength</option>
+                    </select>
+                </div>
+                <div class="col-3">
+                    <label class="text-white">No need to select Your BMI RANGE</label>
+                    <select class="form-select" name="bmiRange">
+                        <option value="none">None</option>
+                        <option value="Below 18.5">Below 18.5</option>
+                        <option value="18.5 to 24.9">18.5 to 24.9</option>
+                        <option value="25 to 29.9">25 to 29.9</option>
+                        <option value="30 or Greater">30 or Greater</option>
+                    </select>
+                </div>
+                <div class="col-1">
+                    <button type="submit" class="btn btn-primary" name="selectBtn" style="margin-top: 2rem;">Select</button>
+                </div>
+                <div class="col-2">
+                    <div class="text-end mt-4 mr-4">
+                        <a href="history.php" class="" style="color: #cc5500;font-size:40px"><b>History</b></a>
                     </div>
                 </div>
-            </form>
-            <?php if (isset($_GET['bmiResult'])) : ?>
-                <h3 class="text-center mt-4" style="color: #cc5500;"><?= $_GET['bmiResult'] ?></h3>
-                <?php if ($_GET['bmiResult'] < 18.5) : ?>
-                    <h5 class="text-white text-center text-uppercase mt-1">Underweight</h5>
-                <?php endif; ?>
-                <?php if ($_GET['bmiResult'] >= 18.5 && $_GET['bmiResult'] <= 24.9) : ?>
-                    <h5 class="text-success text-center text-uppercase mt-1">Normal</h5>
-                <?php endif; ?>
-                <?php if ($_GET['bmiResult'] >= 25 && $_GET['bmiResult'] <= 29.9) : ?>
-                    <h5 class="mt-1 text-center text-uppercase" style="color: #cc5500;">Overweight</h5>
-                <?php endif; ?>
-                <?php if ($_GET['bmiResult'] > 30) : ?>
-                    <h5 class="text-danger mt-1 text-center text-uppercase">Obese</h5>
-                <?php endif; ?>
-            <?php endif; ?>
+
+            </div>
+
+
+        </form>
+
+
+
+        <div class="container" style="margin-top:-3em">
+
+            <div class="row">
+                <?php foreach ($queryAssoc as $key => $row) : ?>
+                    <?php if ($row['p_select'] == "Gain Weight") : ?>
+                        <div class="col-4">
+                            <div class="card" style="width: 18rem;">
+                                <img src="<?= substr($row['content_image'], 3, strlen($row['content_image'])); ?>" class="card-img-top" alt="..." style="height: 180px">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?= $row['p_select'] ?></h5>
+                                    <p class="card-text">Weight gain is an increase in body weight. This can involve an increase in muscle mass, fat deposits, excess fluids such as water or other factors. Weight gain can be a symptom of a serious medical condition.</p>
+                                    <a href="userProgress.php?programId=<?= $row['programs_id'] ?>&username=<?= $_SESSION['username'] ?>" class="btn btn-primary">Confirm</a>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <?php if ($row['p_select'] == "Lose Weight") : ?>
+                        <div class="col-4">
+
+                            <div class="card" style="width: 18rem;">
+                                <img src="<?= substr($row['content_image'], 3, strlen($row['content_image'])); ?>" class="card-img-top" alt="..." style="height: 180px">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?= $row['p_select'] ?></h5>
+                                    <p class="card-text">Weight loss, in the context of medicine, health, or physical fitness, refers to a reduction of the total body mass, by a mean loss of fluid, body fat (adipose tissue).</p>
+                                    <a href="userProgress.php?programId=<?= $row['programs_id'] ?>&username=<?= $_SESSION['username'] ?>" class="btn btn-primary">Confirm</a>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </div>
         </div>
+
     </section>
     <!-- ChoseUs Section End -->
+
 
 
 
@@ -221,74 +274,74 @@ include_once "queries/dbConnection.php";
 </body>
 
 <script>
-    var clearBtn = document.querySelector(".clearBtn");
-    var weightInput = document.querySelector(".weightInput");
-    var heightInput = document.querySelector(".heightInput");
+    // var clearBtn = document.querySelector(".clearBtn");
+    // var weightInput = document.querySelector(".weightInput");
+    // var heightInput = document.querySelector(".heightInput");
 
-    clearBtn.addEventListener("click", () => {
+    // clearBtn.addEventListener("click", () => {
 
-        weightInput.value = '';
-        heightInput.value = '';
+    //     weightInput.value = '';
+    //     heightInput.value = '';
 
-    });
+    // });
 </script>
 
 <?php
 
-if (isset($_POST['computeBtn'])) {
+// if (isset($_POST['computeBtn'])) {
 
-    $userExist = "SELECT * FROM bmi_tracker WHERE username = '$_SESSION[username]'";
+//     $userExist = "SELECT * FROM bmi_tracker WHERE username = '$_SESSION[username]'";
 
-    $queryResult = $conn->query($userExist);
+//     $queryResult = $conn->query($userExist);
 
 
-    if ($queryResult->num_rows > 0) {
+//     if ($queryResult->num_rows > 0) {
 
-        $weight = $_POST['weight'];
-        $height = $_POST['height'];
+//         $weight = $_POST['weight'];
+//         $height = $_POST['height'];
 
-        $hightForm = $height ** 2;
+//         $hightForm = $height ** 2;
 
-        $BMIFromula =  $weight / $hightForm;
+//         $BMIFromula =  $weight / $hightForm;
 
-        $formula = number_format($BMIFromula, 2);
+//         $formula = number_format($BMIFromula, 2);
 
-        $insertBMI = "UPDATE bmi_tracker
-        SET username = '$_SESSION[username]', 
-        height = '$height',
-        weight = '$weight', 
-        bmiResult = '$formula'
-        WHERE username = '$_SESSION[username]'";
+//         $insertBMI = "UPDATE bmi_tracker
+//         SET username = '$_SESSION[username]', 
+//         height = '$height',
+//         weight = '$weight', 
+//         bmiResult = '$formula'
+//         WHERE username = '$_SESSION[username]'";
 
-        $conn->query($insertBMI);
+//         $conn->query($insertBMI);
 
-        echo "
-        <script>
-        window.location.href = 'bmiCalculator.php?bmiResult=" . $formula . "';
-        </script>
-        ";
-    } else {
-        $weight = $_POST['weight'];
-        $height = $_POST['height'];
+//         echo "
+//         <script>
+//         window.location.href = 'bmiCalculator.php?bmiResult=" . $formula . "';
+//         </script>
+//         ";
+//     } else {
+//         $weight = $_POST['weight'];
+//         $height = $_POST['height'];
 
-        $hightForm = $height ** 2;
+//         $hightForm = $height ** 2;
 
-        $BMIFromula =  $weight / $hightForm;
+//         $BMIFromula =  $weight / $hightForm;
 
-        $formula = number_format($BMIFromula, 2);
+//         $formula = number_format($BMIFromula, 2);
 
-        $insertBMI = "INSERT INTO bmi_tracker (username, height, weight, bmiResult)
-        VALUES ('$_SESSION[username]', '$height', '$weight', '$formula')";
+//         $insertBMI = "INSERT INTO bmi_tracker (username, height, weight, bmiResult)
+//         VALUES ('$_SESSION[username]', '$height', '$weight', '$formula')";
 
-        $conn->query($insertBMI);
+//         $conn->query($insertBMI);
 
-        echo "
-        <script>
-        window.location.href = 'bmiCalculator.php?bmiResult=" . $formula . "';
-        </script>
-        ";
-    }
-}
+//         echo "
+//         <script>
+//         window.location.href = 'bmiCalculator.php?bmiResult=" . $formula . "';
+//         </script>
+//         ";
+//     }
+// }
 
 
 ?>

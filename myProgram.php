@@ -53,7 +53,7 @@ if ($average1['completed'] == 0) {
     <meta name="keywords" content="Gym, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Gym | Template</title>
+    <title>DDS | Programs</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
@@ -134,17 +134,17 @@ if ($average1['completed'] == 0) {
                     <nav class="nav-menu">
                         <ul>
                             <li><a href="index.php">Home</a></li>
-                            <li><a href="#">BMI Calculator</a></li>
-                            <li><a href="./class-details.html">Calendar</a></li>
+                            <li><a href="bmiCalculator.php">BMI Calculator</a></li>
+                            <!-- <li><a href="./class-details.html">Calendar</a></li> -->
                             <li class="active"><a href="#">Programs</a>
                                 <ul class="dropdown">
-                                    <li><a href="#">Diatary</a>
+                                    <li><a href="diatary.php">Dietary</a>
                                     </li>
-                                    <li><a href="./class-timetable.html">Exercise</a></li>
+                                    <li><a href="exercises.php">Exercise</a></li>
                                 </ul>
                             </li>
                             <li><a href="./contact.html">Feedback</a></li>
-                            <li><a href="./about-us.html">About Us</a></li>
+                            <li><a href="about_us.php">About Us</a></li>
                             <li><a href="./team.html">Settings</a></li>
                         </ul>
                     </nav>
@@ -173,7 +173,7 @@ if ($average1['completed'] == 0) {
     <section class="classes-section spad">
         <div class="">
             <div class="row">
-                <div class="col-4">
+                <div class="col-4" style="margin-top:6em;margin-left:7em;">
                     <img src="<?= substr($queryAssoc['content_image'], 3, strlen($queryAssoc['content_image'])); ?>" alt="">
                 </div>
                 <div class="col-7">
